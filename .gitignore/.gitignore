@@ -1,0 +1,7 @@
+obj/
+bin/
+Settings.txt
+InstalledPlugins.txt
+Presentation/
+Build/
+!Presentation/Nop.Web/Plugins/bin/
