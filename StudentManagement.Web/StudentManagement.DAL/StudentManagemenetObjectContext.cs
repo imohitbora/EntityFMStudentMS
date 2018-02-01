@@ -2,6 +2,7 @@
 using StudentManagement.Domain.EntityMapper;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,13 @@ namespace StudentManagement.DAL
 {
     public class StudentManagemenetObjectContext : DbContext, IDbContext
     {
-        public StudentManagemenetObjectContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
+
+        private static readonly string _connectionString = 
+            ConfigurationManager.
+    ConnectionStrings["STU_context"].ConnectionString;
+
+        public StudentManagemenetObjectContext()
+            : base(_connectionString)
         {
 
         }

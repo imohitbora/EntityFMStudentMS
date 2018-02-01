@@ -12,6 +12,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac.Integration.Mvc;
 using StudentManagement.Web.IService;
+using System.Reflection;
 
 namespace StudentManagement.Web
 {
@@ -33,23 +34,25 @@ namespace StudentManagement.Web
             builder.Register<IDbContext>(c =>
             (IDbContext)Activator.CreateInstance(typeof(StudentManagemenetObjectContext),
             new object[] {  }))
-                  .Named<IDbContext>("STU_context")
+                  //.Named<IDbContext>("STU_context")
                   .InstancePerLifetimeScope();
 
             builder.RegisterType<EfRepository<Address>>()
               .As<IRepository<Address>>()
-              .WithParameter(ResolvedParameter.
-                    ForNamed<IDbContext>("STU_context"))
+            //  .WithParameter(ResolvedParameter.
+                //    ForNamed<IDbContext>("STU_context"))
               .InstancePerLifetimeScope();
 
             builder.RegisterType<EfRepository<Student>>()
              .As<IRepository<Student>>()
-             .WithParameter(ResolvedParameter.
-                   ForNamed<IDbContext>("STU_context"))
+           //  .WithParameter(ResolvedParameter.
+             //      ForNamed<IDbContext>("STU_context"))
              .InstancePerLifetimeScope();
 
             builder.RegisterType<SudentService>()
                 .As<IStudentService>().InstancePerLifetimeScope();
+
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
