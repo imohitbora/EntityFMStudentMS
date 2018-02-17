@@ -23,6 +23,8 @@ namespace StudentManagement.Web.Controllers
         {
             var students = _studentService.GetAllStudents();
             return View(students);
+
+          //  return View("Students");
         }
     }
 }

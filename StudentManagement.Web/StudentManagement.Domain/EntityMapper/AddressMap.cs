@@ -10,7 +10,7 @@ namespace StudentManagement.Domain.EntityMapper
             ToTable("STU_Address");
             HasKey(x => x.Id);
             Property(x => x.City).IsRequired().HasMaxLength(20);
-            Property(x => x.Line1).IsRequired().HasMaxLength(20);
+            Property(x => x.Line1).IsRequired().HasMaxLength(100);
         }
     }
 }

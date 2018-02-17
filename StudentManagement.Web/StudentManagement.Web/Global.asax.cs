@@ -13,6 +13,7 @@ using System.Web.Routing;
 using Autofac.Integration.Mvc;
 using StudentManagement.Web.IService;
 using System.Reflection;
+using System.Data.Entity;
 
 namespace StudentManagement.Web
 {
@@ -24,7 +25,10 @@ namespace StudentManagement.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
             RegisterDependency();
+
+            EfStartUpTask.Execute();
         }
 
         private void RegisterDependency()

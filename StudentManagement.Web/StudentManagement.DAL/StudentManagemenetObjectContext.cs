@@ -1,21 +1,20 @@
 ﻿using StudentManagement.Domain.Entities;
 using StudentManagement.Domain.EntityMapper;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentManagement.DAL
 {
     public class StudentManagemenetObjectContext : DbContext, IDbContext
     {
 
-        private static readonly string _connectionString = 
+        private static readonly string _connectionString =
             ConfigurationManager.
     ConnectionStrings["STU_context"].ConnectionString;
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Address> Departments { get; set; }
+
 
         public StudentManagemenetObjectContext()
             : base(_connectionString)
@@ -29,7 +28,6 @@ namespace StudentManagement.DAL
             modelBuilder.Configurations.Add(new StudentMap());
             base.OnModelCreating(modelBuilder);
         }
-        
 
         public new IDbSet<T> Set<T>() where T : BaseEntity
         {
