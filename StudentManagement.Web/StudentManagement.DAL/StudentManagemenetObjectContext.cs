@@ -7,17 +7,12 @@ namespace StudentManagement.DAL
 {
     public class StudentManagemenetObjectContext : DbContext, IDbContext
     {
-
-        private static readonly string _connectionString =
-            ConfigurationManager.
-    ConnectionStrings["STU_context"].ConnectionString;
-
         public DbSet<Student> Students { get; set; }
         public DbSet<Address> Departments { get; set; }
 
 
-        public StudentManagemenetObjectContext()
-            : base(_connectionString)
+        public StudentManagemenetObjectContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
 
         }

@@ -21,25 +21,25 @@ namespace StudentManagement.Web.Service
 
         public List<Student> GetAllStudents()
         {
-            var address = new Address
-            {
-                City = "Delhi",
-                Line1 = "B-53, 2nd Floor, DK Road",
-                Line2 = "Mohan Garden, Nawada",
-                PinCode = 110059
-            };
+            //var address = new Address
+            //{
+            //    City = "Delhi",
+            //    Line1 = "B-53, 2nd Floor, DK Road",
+            //    Line2 = "Mohan Garden, Nawada",
+            //    PinCode = 110059
+            //};
 
-            _addressRepository.Insert(address);
+            //_addressRepository.Insert(address);
 
-            var student = new Student
-            {
-                Address = _addressRepository.Table.ToList(),
-                DOB = new DateTime(1993, 09, 16),
-                FirstName = "Mohit",
-                LastName = "Singh Bora"
-            };
+            //var student = new Student
+            //{
+            //    Address = _addressRepository.Table.ToList(),
+            //    DOB = new DateTime(1993, 09, 16),
+            //    FirstName = "Mohit",
+            //    LastName = "Singh Bora"
+            //};
 
-            _studentRepository.Insert(student);
+            //_studentRepository.Insert(student);
 
             return _studentRepository.Table?.ToList();
         }

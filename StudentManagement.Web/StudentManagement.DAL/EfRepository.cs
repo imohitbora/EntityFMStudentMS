@@ -29,7 +29,7 @@ namespace StudentManagement.DAL
         {
             get
             {
-                return _entities;
+                return Entities;
             }
         }
 

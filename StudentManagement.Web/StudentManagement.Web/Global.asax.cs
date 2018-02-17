@@ -4,8 +4,6 @@ using StudentManagement.DAL;
 using StudentManagement.Domain.Entities;
 using StudentManagement.Web.Service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -13,7 +11,7 @@ using System.Web.Routing;
 using Autofac.Integration.Mvc;
 using StudentManagement.Web.IService;
 using System.Reflection;
-using System.Data.Entity;
+using System.Configuration;
 
 namespace StudentManagement.Web
 {
@@ -27,7 +25,6 @@ namespace StudentManagement.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             RegisterDependency();
-
             EfStartUpTask.Execute();
         }
 
@@ -35,22 +32,25 @@ namespace StudentManagement.Web
         {
             var builder = new ContainerBuilder();
 
+            var _connectionString =
+           ConfigurationManager.ConnectionStrings["STU_context"].ConnectionString;
+
             builder.Register<IDbContext>(c =>
-            (IDbContext)Activator.CreateInstance(typeof(StudentManagemenetObjectContext),
-            new object[] {  }))
-                  //.Named<IDbContext>("STU_context")
-                  .InstancePerLifetimeScope();
+                (IDbContext)Activator.CreateInstance(typeof(StudentManagemenetObjectContext),
+                new object[] { _connectionString }))
+                      .Named<IDbContext>("STU_context")
+                      .InstancePerLifetimeScope();
 
             builder.RegisterType<EfRepository<Address>>()
               .As<IRepository<Address>>()
-            //  .WithParameter(ResolvedParameter.
-                //    ForNamed<IDbContext>("STU_context"))
+              .WithParameter(ResolvedParameter.
+                    ForNamed<IDbContext>("STU_context"))
               .InstancePerLifetimeScope();
 
             builder.RegisterType<EfRepository<Student>>()
              .As<IRepository<Student>>()
-           //  .WithParameter(ResolvedParameter.
-             //      ForNamed<IDbContext>("STU_context"))
+             .WithParameter(ResolvedParameter.
+                   ForNamed<IDbContext>("STU_context"))
              .InstancePerLifetimeScope();
 
             builder.RegisterType<SudentService>()
