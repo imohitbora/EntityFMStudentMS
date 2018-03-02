@@ -1,10 +1,4 @@
-﻿using StudentManagement.DAL;
-using StudentManagement.Domain.Entities;
-using StudentManagement.Web.IService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using StudentManagement.Web.IService;
 using System.Web.Mvc;
 
 namespace StudentManagement.Web.Controllers
@@ -22,9 +16,9 @@ namespace StudentManagement.Web.Controllers
         public ActionResult GetAllStudents()
         {
             var students = _studentService.GetAllStudents();
-            return View(students);
+           // return View(students);
 
-          //  return View("Students");
+            return View("Students", students);
         }
     }
 }

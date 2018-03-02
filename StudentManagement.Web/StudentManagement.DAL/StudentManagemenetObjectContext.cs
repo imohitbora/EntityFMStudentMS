@@ -1,6 +1,5 @@
 ﻿using StudentManagement.Domain.Entities;
 using StudentManagement.Domain.EntityMapper;
-using System.Configuration;
 using System.Data.Entity;
 
 namespace StudentManagement.DAL

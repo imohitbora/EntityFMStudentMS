@@ -39,7 +39,7 @@ namespace StudentManagement.Web.Service
             //    LastName = "Singh Bora"
             //};
 
-            //_studentRepository.Insert(student);
+          //  _studentRepository.Insert(student);
 
             return _studentRepository.Table?.ToList();
         }
