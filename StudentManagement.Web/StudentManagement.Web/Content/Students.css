@@ -1,0 +1,13 @@
+﻿.student-table {
+    border: 1px solid black;
+}
+
+.student-element {
+    vertical-align: top;
+    padding: 5px;
+}
+
+.student-Label {
+    font-weight: bold;
+    padding-right: 10px;
+}

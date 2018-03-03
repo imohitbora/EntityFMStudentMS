@@ -19,6 +19,12 @@ namespace StudentManagement.Web.Service
             _addressRepository = addressRepository;
         }
 
+        public Student GetStudentById(int id)
+        {
+            return _studentRepository.GetById(id);
+        }
+
+
         public List<Student> GetAllStudents()
         {
             //var address = new Address
@@ -39,9 +45,29 @@ namespace StudentManagement.Web.Service
             //    LastName = "Singh Bora"
             //};
 
-          //  _studentRepository.Insert(student);
+            //  _studentRepository.Insert(student);
 
             return _studentRepository.Table?.ToList();
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            _studentRepository.Update(student);
+        }
+
+        public void Delete(Student student)
+        {
+            _studentRepository.Delete(student);
+        }
+
+        public void DeleteStudent(Student student)
+        {
+            _studentRepository.Delete(student);
+        }
+
+        public void AddStudent(Student student)
+        {
+            _studentRepository.Insert(student);
         }
     }
 }

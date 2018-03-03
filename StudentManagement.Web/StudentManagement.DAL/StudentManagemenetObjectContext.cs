@@ -6,12 +6,8 @@ namespace StudentManagement.DAL
 {
     public class StudentManagemenetObjectContext : DbContext, IDbContext
     {
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Address> Departments { get; set; }
-
-
         public StudentManagemenetObjectContext(string nameOrConnectionString)
-            : base(nameOrConnectionString)
+       : base(nameOrConnectionString)
         {
 
         }

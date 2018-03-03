@@ -66,7 +66,7 @@ namespace StudentManagement.DAL
             {
                 return;
             }
-
+            
             _context.SaveChanges();
         }
     }

@@ -1,0 +1,72 @@
+﻿@model StudentManagement.Domain.Entities.Student
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>AddStudent</title>
+<link type="text/css" href="~/Content/Students.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <h4>Student</h4>
+        @Html.HiddenFor(model => Model.Id)
+        <div>
+            @Html.LabelFor(x => Model.FirstName, new { @class = "student-Label" })
+
+            @Html.EditorFor(x => Model.FirstName)
+        </div>
+
+        <div>
+            @Html.LabelFor(x => Model.LastName, new { @class = "student-Label" })
+
+            @Html.EditorFor(x => Model.LastName)
+        </div>
+
+        <div>
+            @Html.LabelFor(x => Model.DOB, new { @class = "student-Label" })
+
+            @Html.EditorFor(x => Model.DOB)
+        </div>
+
+        <div>
+            @Html.LabelFor(x => Model.Address, new { @class = "student-Label" })
+
+            @foreach (var address in Model.Address)
+            {
+                <div>
+                    @Html.LabelFor(x => address.Line1, new { @class = "student-Label" })
+                    @Html.EditorFor(x => address.Line1)
+                </div>
+                <div>
+                    @Html.LabelFor(x => address.Line2, new { @class = "student-Label" })
+                    @Html.EditorFor(x => address.Line2)
+                </div>
+                <div>
+                    @Html.LabelFor(x => address.City, new { @class = "student-Label" })
+                    @Html.EditorFor(x => address.City)
+                </div>
+                <div>
+                    @Html.LabelFor(x => address.PinCode, new { @class = "student-Label" })
+                    @Html.EditorFor(x => address.PinCode)
+                </div>
+            }
+
+
+        </div>
+
+        <div>
+            <input type="submit" value="Create" />
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back To list", "GetAllStudents")
+    </div>
+</body>
+</html>

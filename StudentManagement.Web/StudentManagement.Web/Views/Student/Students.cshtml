@@ -2,20 +2,12 @@
 @{
     Layout = null;
 }
-
-
-
-
-
-<!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Students</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Students.css" />
 </head>
 <body>
-    <table>
+    <table class="student-table">
         <tr>
             <th>
                 @Html.DisplayNameFor(x => Model.FirstOrDefault().FirstName)
@@ -30,13 +22,13 @@
         @foreach (var student in Model)
             {
             <tr>
-                <td>
+                <td class="student-element">
                     @Html.DisplayFor(x => student.FirstName)
                 </td>
-                <td>
+                <td class="student-element">
                     @Html.DisplayFor(x => student.LastName)
                 </td>
-                <td>
+                <td class="student-element">
                     @foreach (var address in student.Address)
                     {
                         <p>Line 1:-   @Html.DisplayFor(x => address.Line1)</p>
@@ -45,10 +37,13 @@
                         <p>PinCode:-   @Html.DisplayFor(x => address.PinCode)</p>
                     }
                 </td>
-            </tr>            
+                <td class="student-element">
+                        @Html.ActionLink("Edit", "EditStudent", new { id = student.Id }) |
+                        @Html.ActionLink("Add", "AddStudent") |
+                        @Html.ActionLink("Delete", "DeleteStudent", new { id = student.Id })
+                </td>
+            </tr>
         }
-
-
     </table>
 </body>
 </html>
