@@ -15,6 +15,7 @@
     {
         <h4>Student</h4>
         @Html.HiddenFor(model => Model.Id)
+        @Html.HiddenFor(model => Model.Address.Id)
         <div>
             @Html.LabelFor(x => Model.FirstName, new { @class= "student-Label" })
 
@@ -36,7 +37,24 @@
         <div>
             @Html.LabelFor(x => Model.Address, new { @class = "student-Label" })
 
-            @foreach (var address in Model.Address)
+            <div>
+                @Html.LabelFor(x => Model.Address.Line1, new { @class = "student-Label" })
+                @Html.EditorFor(x => Model.Address.Line1)
+            </div>
+            <div>
+                @Html.LabelFor(x => Model.Address.Line2, new { @class = "student-Label" })
+                @Html.EditorFor(x => Model.Address.Line2)
+            </div>
+            <div>
+                @Html.LabelFor(x => Model.Address.City, new { @class = "student-Label" })
+                @Html.EditorFor(x => Model.Address.City)
+            </div>
+            <div>
+                @Html.LabelFor(x => Model.Address.PinCode, new { @class = "student-Label" })
+                @Html.EditorFor(x => Model.Address.PinCode)
+            </div>
+
+            @*@foreach (var address in Model.Address)
             {
                 <div>
                     @Html.LabelFor(x => address.Line1, new { @class = "student-Label" })
@@ -54,7 +72,7 @@
                     @Html.LabelFor(x => address.PinCode, new { @class = "student-Label" })
                     @Html.EditorFor(x => address.PinCode)
                 </div>
-            }
+            }*@
 
           
         </div>

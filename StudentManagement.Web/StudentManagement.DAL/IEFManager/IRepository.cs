@@ -1,7 +1,7 @@
 ﻿using StudentManagement.Domain.Entities;
 using System.Linq;
 
-namespace StudentManagement.DAL
+namespace StudentManagement.DAL.IEFManager
 {
     public interface IRepository<T> where T : BaseEntity
     {

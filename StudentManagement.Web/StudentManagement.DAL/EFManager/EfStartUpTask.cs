@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace StudentManagement.DAL
+namespace StudentManagement.DAL.EFManager
 {
     public class EfStartUpTask
     {

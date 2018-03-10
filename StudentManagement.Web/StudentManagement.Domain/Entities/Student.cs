@@ -9,6 +9,6 @@ namespace StudentManagement.Domain.Entities
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
 
-        public virtual List<Address> Address { get; set; } = new List<Entities.Address>();
+        public virtual Address Address { get; set; } 
     }
 }

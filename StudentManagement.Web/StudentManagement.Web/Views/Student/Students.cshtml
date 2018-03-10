@@ -29,13 +29,18 @@
                     @Html.DisplayFor(x => student.LastName)
                 </td>
                 <td class="student-element">
-                    @foreach (var address in student.Address)
+                    <p>Line 1:-   @Html.DisplayFor(x => student.Address.Line1)</p>
+                    <p>Line 2:-   @Html.DisplayFor(x => student.Address.Line2)</p>
+                    <p>City:-   @Html.DisplayFor(x => student.Address.City)</p>
+                    <p>PinCode:-   @Html.DisplayFor(x => student.Address.PinCode)</p>
+
+                    @*@foreach (var address in student.Address)
                     {
                         <p>Line 1:-   @Html.DisplayFor(x => address.Line1)</p>
                         <p>Line 2:-   @Html.DisplayFor(x => address.Line2)</p>
                         <p>City:-   @Html.DisplayFor(x => address.City)</p>
                         <p>PinCode:-   @Html.DisplayFor(x => address.PinCode)</p>
-                    }
+                    }*@
                 </td>
                 <td class="student-element">
                         @Html.ActionLink("Edit", "EditStudent", new { id = student.Id }) |

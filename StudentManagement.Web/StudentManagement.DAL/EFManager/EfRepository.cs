@@ -1,8 +1,9 @@
-﻿using StudentManagement.Domain.Entities;
+﻿using StudentManagement.DAL.IEFManager;
+using StudentManagement.Domain.Entities;
 using System.Data.Entity;
 using System.Linq;
 
-namespace StudentManagement.DAL
+namespace StudentManagement.DAL.EFManger
 {
     public partial class EfRepository<T> : IRepository<T> where T : BaseEntity
     {

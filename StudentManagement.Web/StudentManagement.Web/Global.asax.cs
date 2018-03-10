@@ -12,6 +12,9 @@ using Autofac.Integration.Mvc;
 using StudentManagement.Web.IService;
 using System.Reflection;
 using System.Configuration;
+using StudentManagement.DAL.EFManager;
+using StudentManagement.DAL.IEFManager;
+using StudentManagement.DAL.EFManger;
 
 namespace StudentManagement.Web
 {

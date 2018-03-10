@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EfRepository.cs" />
-    <Compile Include="EfStartUpTask.cs" />
-    <Compile Include="IDbContext.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="EFManager\EfRepository.cs" />
+    <Compile Include="EFManager\EfStartUpTask.cs" />
+    <Compile Include="IEFManager\IDbContext.cs" />
+    <Compile Include="IEFManager\IRepository.cs" />
     <Compile Include="StudentManagemenetObjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

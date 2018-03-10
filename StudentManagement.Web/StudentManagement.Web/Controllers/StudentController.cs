@@ -1,6 +1,7 @@
 ﻿using StudentManagement.Domain.Entities;
 using StudentManagement.Web.IService;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace StudentManagement.Web.Controllers
 {
@@ -16,7 +17,8 @@ namespace StudentManagement.Web.Controllers
         // GET: Student
         public ActionResult GetAllStudents()
         {
-            var students = _studentService.GetAllStudents();
+            var students = _studentService.GetAllStudents();           
+
             return View("Students", students);
         }
 
@@ -29,7 +31,17 @@ namespace StudentManagement.Web.Controllers
         [HttpPost]
         public ActionResult EditStudent(Student student)
         {
-            _studentService.UpdateStudent(student);
+            var studentToUpdate = _studentService.GetStudentById(student.Id);
+
+            studentToUpdate.FirstName = student.FirstName;
+            studentToUpdate.LastName = studentToUpdate.LastName;
+            studentToUpdate.DOB = studentToUpdate.DOB;
+            studentToUpdate.Address.City = student.Address.City;
+            studentToUpdate.Address.Line1 = student.Address.Line1;
+            studentToUpdate.Address.Line2 = student.Address.Line2;
+            studentToUpdate.Address.PinCode = student.Address.PinCode;
+
+            _studentService.UpdateStudent(studentToUpdate);
             return RedirectToAction("GetAllStudents");
         }
 

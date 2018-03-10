@@ -1,4 +1,4 @@
-﻿using StudentManagement.DAL;
+﻿using StudentManagement.DAL.IEFManager;
 using StudentManagement.Domain.Entities;
 using StudentManagement.Web.IService;
 using System;
@@ -39,13 +39,13 @@ namespace StudentManagement.Web.Service
 
             //var student = new Student
             //{
-            //    Address = _addressRepository.Table.ToList(),
+            //    Address = _addressRepository.GetById(1),
             //    DOB = new DateTime(1993, 09, 16),
             //    FirstName = "Mohit",
             //    LastName = "Singh Bora"
             //};
 
-            //  _studentRepository.Insert(student);
+            //_studentRepository.Insert(student);
 
             return _studentRepository.Table?.ToList();
         }

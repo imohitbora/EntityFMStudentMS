@@ -11,6 +11,7 @@ namespace StudentManagement.Domain.EntityMapper
             HasKey(x => x.Id);
             Property(x => x.FirstName).IsRequired().HasMaxLength(20);
             Property(x => x.LastName).HasMaxLength(20);
+           // HasMany(x => x.Address);
         }
     }
 }
